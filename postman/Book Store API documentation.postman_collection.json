@@ -1,0 +1,2895 @@
+{
+	"info": {
+		"_postman_id": "c8081e69-a6de-4d8c-af6f-0b491b8d34c6",
+		"name": "Book Store API documentation",
+		"description": "# 📄 Get started here\n\nThis template contains a boilerplate for documentation that you can quickly customize and reuse.\n\n## 🔖 How to use this template\n\n- Replace the content given brackets (()) with your API's details.\n- Tips are formatted in `codespan` - feel free to read and remove them.\n    \n\n---\n\n`Start with a brief overview of what your API offers.`\n\nThe ((product name)) provides many API products, tools, and resources that enable you to ((add product value here)).\n\n`You can also list the APIs you offer, link to the relevant pages, or do both in this section.`\n\n## **Getting started guide**\n\n`List the steps or points required to start using your APIs. Make sure to cover everything required to reach success with your API as quickly as possible.`\n\nTo start using the ((add APIs here)), you need to -\n\n`The points given below are from The Postman API's documentation. You can reference it to write your own getting started guide.`\n\n- You must use a valid API Key to send requests to the API endpoints. You can get your API key from Postman's [integrations dashboard](https://go.postman.co/settings/me/api-keys).\n- The API has [rate and usage limits](https://learning.postman.com/docs/developer/postman-api/postman-api-rate-limits/).\n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\n`Add details on the authorization keys/tokens required, steps that cover how to get them, and the relevant error codes.`\n\nThe ((product name)) API uses ((add your API's authorization type)) for authentication.\n\n`The details given below are from the Postman API's documentation. You can reference it to write your own authentication section.`\n\nPostman uses API keys for authentication. You can generate a Postman API key in the [API keys](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.\n\nYou must include an API key in each request to the Postman API with the X-Api-Key request header.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\n`Use this section to cover your APIs' terms of use. Include API limits, constraints, and relevant error codes, so consumers understand the permitted API usage and practices.`\n\n`The example given below is from The Postman API's documentation. Use it as a reference to write your APIs' terms of use.`\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\n### 503 response\n\nAn HTTP `503` response from our servers indicates there is an unexpected spike in API access traffic. The server is usually operational within the next five minutes. If the outage persists or you receive any other form of an HTTP `5XX` error, [contact support](https://support.postman.com/hc/en-us/requests/new/).\n\n### **Need some help?**\n\n`Add links that customers can refer to whenever they need help.`\n\nIn case you have questions, go through our tutorials ((link to your video or help documentation here)). Or visit our FAQ page ((link to the relevant page)).\n\nOr you can check out our community forum, there’s a good chance our community has an answer for you. Visit our developer forum ((link to developer forum)) to review topics, ask questions, and learn from others.\n\n`You can also document or add links to libraries, code examples, and other resources needed to make a request.`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21349149"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dian\",\n    \"email\": \"dian2@example.com\",\n    \"password\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "succesfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Dian\",\n    \"email\": \"dian2@example.com\",\n    \"password\": \"1234567890\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/Register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"Register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:24:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully\",\n    \"user\": {\n        \"ID\": 10,\n        \"CreatedAt\": \"2025-09-15T18:24:15.194988005+08:00\",\n        \"UpdatedAt\": \"2025-09-15T18:24:15.194988005+08:00\",\n        \"DeletedAt\": null,\n        \"name\": \"Dian\",\n        \"email\": \"dian2@example.com\",\n        \"role\": \"user\"\n    }\n}"
+						},
+						{
+							"name": "error double",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Dian\",\n    \"email\": \"dian2@example.com\",\n    \"password\": \"1234567890\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/Register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"Register"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:24:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"ERROR: duplicate key value violates unique constraint \\\"users_email_key\\\" (SQLSTATE 23505)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.status).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has a token field\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.property('token');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Token is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.token).to.exist.and.to.be.a('string').and.to.have.lengthOf.above(0, \"Token should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login User Biasa",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dian@exampwle.com\",\n    \"password\": \"1234567890\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/Login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"Login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 14 Sep 2025 15:44:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "152"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTc5NTEwNjgsInJvbGUiOiJ1c2VyIiwidXNlcl9pZCI6M30.6jhdKwpBxNl9lfsdL4BIkMyDfdmVgvh_T3amKySn7Vw\"\n}"
+						},
+						{
+							"name": "Error Login salah email pass",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"dian@exampwle.com\",\n    \"password\": \"1234567890\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/Login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"Login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 14 Sep 2025 15:44:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"invalid credentials\"\n}"
+						},
+						{
+							"name": "Login admin success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/Login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"Login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 14 Sep 2025 15:52:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTc5NTE1ODAsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOjV9.M8YRkEtfGLOV7wQhYN9RA1UINqnWsrVUSiyMTlnKkQg\"\n}"
+						}
+					]
+				}
+			],
+			"description": "The `/me` endpoints let you manage information about the authenticated user."
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.expect(pm.response.code).to.eql(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response contains required fields: id and name\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('id', 'name');",
+									"});",
+									"",
+									"",
+									"pm.test(\"The id must be a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.id).to.be.a('number').and.to.be.at.least(0, \"Id must be non-negative\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Name must be a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.name).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"kategori 8\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "{{workspaceId}}",
+									"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include a `collection` object in the request body that contains the following required properties:\n\n*   `info` — An **object** that contains the following properties:\n    *   `name` — A **string** value that contains the collection's name.\n    *   `schema` — A **string** that contains a URL to the collection's schema. For example, the `https://schema.getpostman.com/collection/v1` URL.\n*   `item` — An **object** that contains the HTTP request and response information.\n    *   `request` — An **object** that contains the collection's request information. For a complete list of values, refer to the `definitions.request` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). If you pass an empty object for this value, the system defaults to an untitled GET request.\n\n**Note:**\n\n*   For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):\n    *   `info` object — Use the `definitions.info` entry.\n    *   `item` object — Use the `definitions.items` entry.\n*   For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": [
+						{
+							"name": "error selain admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"kategori 4\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "{{workspaceId}}",
+											"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:25:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Forbidden: Admin access required\"\n}"
+						},
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"kategori 8\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "{{workspaceId}}",
+											"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:37:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 11,\n    \"name\": \"kategori 8\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has required fields: id and name\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('id', 'name');",
+									"});",
+									"",
+									"",
+									"pm.test(\"ID is a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.id).to.exist.and.to.be.a('number').and.to.be.at.least(0, \"ID should be a non-negative integer\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Name must be a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.name).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/categories/10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"10"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "{{accessKey}}",
+									"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": [
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/categories/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"categories",
+										"10"
+									],
+									"query": [
+										{
+											"key": "access_key",
+											"value": "{{accessKey}}",
+											"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:33:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 10,\n    \"name\": \"kategori 4\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a collection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/categories/11",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"11"
+							]
+						},
+						"description": "Deletes a collection."
+					},
+					"response": [
+						{
+							"name": "Delete a collection",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/categories/11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"categories",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:38:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category deleted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"kategori 81\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/categories/11",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"11"
+							]
+						},
+						"description": "Updates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include a `collection` object in the request body that contains the following required properties:\n\n- `info` — An **object** that contains the following properties:\n    - `name` — A **string** value that contains the collection's name.\n    - `schema` — A **string** that contains a URL to the collection's schema. For example, the `https://schema.getpostman.com/collection/v1` URL.\n- `item` — An **object** that contains the HTTP request and response information.\n    - `request` — An **object** that contains the collection's request information. For a complete list of values, refer to the `definitions.request` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). If you pass an empty object for this value, the system defaults to an untitled GET request.\n\n**Note:**\n\n- For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):\n    - `info` object — Use the `definitions.info` entry.\n    - `item` object — Use the `definitions.items` entry.\n- For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).\n    \n\n### Important\n\nUse caution when using this endpoint. The system will replace the existing collection with the values passed in the request body."
+					},
+					"response": [
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"kategori 81\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/categories/11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"categories",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:37:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 11,\n    \"name\": \"kategori 81\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.eql(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response is an array and contains required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"    ",
+									"    responseData.forEach(item => {",
+									"        pm.expect(item).to.have.all.keys('id', 'name');",
+									"        pm.expect(item.id).to.be.a('number');",
+									"        pm.expect(item.name).to.be.a('string');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Each ID is a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(item) {",
+									"        pm.expect(item).to.have.property('id').that.is.a('number').and.is.at.least(0);",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Name must be a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"    ",
+									"    responseData.forEach(category => {",
+									"        pm.expect(category).to.have.property('name').that.is.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "{{workspaceId}}",
+									"description": "Optional. A workspace ID.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections."
+					},
+					"response": [
+						{
+							"name": "Get all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "{{workspaceId}}",
+											"description": "Optional. A workspace ID.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:49:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 8,\n        \"name\": \"kategori 1\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"kategori 1\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"kategori 4\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "The `/collections` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.expect(pm.response.status).to.eql(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has all required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('id', 'title', 'author', 'price', 'stock', 'year', 'category_id', 'image_base64', 'created_at', 'updated_at');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Price must be a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.price).to.exist.and.to.be.a('number').and.to.be.at.least(0, \"Price should be non-negative\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Stock must be a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.stock).to.be.a('number').that.is.at.least(0);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Created_at and updated_at are in valid date format\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    ",
+									"    const datePattern = /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$/; // ISO 8601 format",
+									"",
+									"    pm.expect(responseData.created_at).to.match(datePattern, \"Created_at should be in ISO 8601 format\");",
+									"    pm.expect(responseData.updated_at).to.match(datePattern, \"Updated_at should be in ISO 8601 format\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Judul 3\",\n  \"author\": \"Penulis 3\",\n  \"price\": 99.99,\n  \"stock\": 10,\n  \"year\": 2023,\n  \"category_id\": 8,\n  \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "{{workspaceId}}",
+									"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include a `collection` object in the request body that contains the following required properties:\n\n*   `info` — An **object** that contains the following properties:\n    *   `name` — A **string** value that contains the collection's name.\n    *   `schema` — A **string** that contains a URL to the collection's schema. For example, the `https://schema.getpostman.com/collection/v1` URL.\n*   `item` — An **object** that contains the HTTP request and response information.\n    *   `request` — An **object** that contains the collection's request information. For a complete list of values, refer to the `definitions.request` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). If you pass an empty object for this value, the system defaults to an untitled GET request.\n\n**Note:**\n\n*   For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):\n    *   `info` object — Use the `definitions.info` entry.\n    *   `item` object — Use the `definitions.items` entry.\n*   For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": [
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Judul 3\",\n  \"author\": \"Penulis 3\",\n  \"price\": 99.99,\n  \"stock\": 10,\n  \"year\": 2023,\n  \"category_id\": 8,\n  \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"books"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "{{workspaceId}}",
+											"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:30:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 31,\n    \"title\": \"Judul 3\",\n    \"author\": \"Penulis 3\",\n    \"price\": 99.99,\n    \"stock\": 10,\n    \"year\": 2023,\n    \"category_id\": 8,\n    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n    \"Category\": {\n        \"id\": 0,\n        \"name\": \"\"\n    },\n    \"created_at\": \"2025-09-15T18:30:04.318033173+08:00\",\n    \"updated_at\": \"2025-09-15T18:30:04.318033173+08:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"31"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "{{accessKey}}",
+									"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": [
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/books/31",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"books",
+										"31"
+									],
+									"query": [
+										{
+											"key": "access_key",
+											"value": "{{accessKey}}",
+											"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:30:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 31,\n    \"title\": \"Judul 3\",\n    \"author\": \"Penulis 3\",\n    \"price\": 99.99,\n    \"stock\": 10,\n    \"year\": 2023,\n    \"category_id\": 8,\n    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n    \"Category\": {\n        \"id\": 8,\n        \"name\": \"kategori 1\"\n    },\n    \"created_at\": \"2025-09-15T18:30:04.318033Z\",\n    \"updated_at\": \"2025-09-15T18:30:04.318033Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a collection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/33",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"33"
+							]
+						},
+						"description": "Deletes a collection."
+					},
+					"response": [
+						{
+							"name": "succesfull",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/books/33",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"books",
+										"33"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:33:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Book deleted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.status).to.eql(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('data', 'limit', 'page', 'total');",
+									"});",
+									"",
+									"",
+									"pm.test(\"The data array contains at least one book object\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.data).to.be.an('array').that.is.not.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Each book object has valid fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.data).to.be.an('array').that.is.not.empty;",
+									"",
+									"    responseData.data.forEach(function(book) {",
+									"        pm.expect(book).to.have.all.keys('id', 'title', 'author', 'price', 'stock', 'year', 'category_id', 'image_base64', 'created_at', 'updated_at');",
+									"        pm.expect(book.id).to.be.a('number');",
+									"        pm.expect(book.title).to.be.a('string');",
+									"        pm.expect(book.author).to.be.a('string');",
+									"        pm.expect(book.price).to.be.a('number');",
+									"        pm.expect(book.stock).to.be.a('number');",
+									"        pm.expect(book.year).to.be.a('number');",
+									"        pm.expect(book.category_id).to.be.a('number');",
+									"        pm.expect(book.image_base64).to.be.a('string');",
+									"        pm.expect(book.created_at).to.be.a('string');",
+									"        pm.expect(book.updated_at).to.be.a('string');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response contains valid Category object fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.data).to.be.an('array').that.is.not.empty;",
+									"",
+									"    responseData.data.forEach(book => {",
+									"        pm.expect(book.Category).to.be.an('object');",
+									"        pm.expect(book.Category).to.have.all.keys('id', 'name');",
+									"        pm.expect(book.Category.id).to.be.a('number');",
+									"        pm.expect(book.Category.name).to.be.a('string').that.is.not.empty;",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books?search=buku&category_id=8&page=1&limit=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "buku"
+								},
+								{
+									"key": "category_id",
+									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections."
+					},
+					"response": [
+						{
+							"name": "Successfull Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/books?search=buku&category_id=8&page=1&limit=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"books"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "buku"
+										},
+										{
+											"key": "category_id",
+											"value": "8"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 14 Sep 2025 16:47:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "339"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 29,\n            \"title\": \"Judul Buku\",\n            \"author\": \"Penulis Buku\",\n            \"price\": 99.99,\n            \"stock\": 10,\n            \"year\": 2023,\n            \"category_id\": 8,\n            \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n            \"Category\": {\n                \"id\": 8,\n                \"name\": \"kategori 1\"\n            },\n            \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n            \"updated_at\": \"2025-09-14T23:22:01.445195Z\"\n        }\n    ],\n    \"limit\": 1,\n    \"page\": 1,\n    \"total\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response contains required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('id', 'title', 'author', 'price', 'stock', 'year', 'category_id', 'image_base64', 'created_at', 'updated_at');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Price must be a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.price).to.be.a('number').and.to.be.at.least(0, \"Price should not be negative\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Stock is a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.stock).to.be.a('number').that.is.at.least(0, \"Stock should be a non-negative integer\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Category object must contain id and name fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.Category).to.be.an('object');",
+									"    pm.expect(responseData.Category).to.have.all.keys('id', 'name');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Judul 1\",\n  \"author\": \"Penulis Buku\",\n  \"price\": 99.99,\n  \"stock\": 10,\n  \"year\": 2023,\n  \"category_id\": 8,\n  \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books/29",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"29"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Judul 1\",\n  \"author\": \"Penulis Buku\",\n  \"price\": 99.99,\n  \"stock\": 10,\n  \"year\": 2023,\n  \"category_id\": 8,\n  \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/books/29",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"29"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:29:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "304"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 29,\n    \"title\": \"Judul 1\",\n    \"author\": \"Penulis Buku\",\n    \"price\": 99.99,\n    \"stock\": 10,\n    \"year\": 2023,\n    \"category_id\": 8,\n    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n    \"Category\": {\n        \"id\": 8,\n        \"name\": \"kategori 1\"\n    },\n    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n    \"updated_at\": \"2025-09-15T18:29:10.871852217+08:00\"\n}"
+						}
+					]
+				}
+			],
+			"description": "The `/books` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+		},
+		{
+			"name": "Order & Payment",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.expect(pm.response.code).to.eql(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response contains required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('id', 'user_id', 'total_price', 'status', 'created_at', 'OrderItems');",
+									"});",
+									"",
+									"",
+									"pm.test(\"User object contains valid fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.User).to.exist;",
+									"    ",
+									"    const userFields = responseData.User;",
+									"    pm.expect(userFields).to.have.all.keys('ID', 'CreatedAt', 'UpdatedAt', 'name', 'email', 'role');",
+									"    ",
+									"    pm.expect(userFields.ID).to.be.a('number');",
+									"    pm.expect(userFields.CreatedAt).to.be.a('string').that.is.not.empty;",
+									"    pm.expect(userFields.UpdatedAt).to.be.a('string').that.is.not.empty;",
+									"    pm.expect(userFields.name).to.be.a('string').that.is.not.empty;",
+									"    pm.expect(userFields.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/); // Email format",
+									"    pm.expect(userFields.role).to.be.a('string').that.is.not.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Total price is a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.total_price).to.be.a('number').and.to.be.at.least(0, \"Total price should be non-negative\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response contains required properties\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('id', 'user_id', 'User', 'total_price', 'status', 'created_at', 'OrderItems', 'xendit_data', 'invoice_url');",
+									"});",
+									"",
+									"pm.test(\"OrderItems array contains at least one item with valid fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(responseData.OrderItems).to.be.an('array').that.is.not.empty;",
+									"",
+									"    responseData.OrderItems.forEach(item => {",
+									"        pm.expect(item).to.have.all.keys('id', 'order_id', 'book_id', 'quantity', 'price');",
+									"        pm.expect(item.id).to.be.a('number');",
+									"        pm.expect(item.order_id).to.be.a('number');",
+									"        pm.expect(item.book_id).to.be.a('number');",
+									"        pm.expect(item.quantity).to.be.a('number');",
+									"        pm.expect(item.price).to.be.a('number');",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"items\": [\n     {\n      \"book_id\": 30,\n      \"quantity\": 1\n    }\n    \n\n   \n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "{{workspaceId}}",
+									"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include a `collection` object in the request body that contains the following required properties:\n\n*   `info` — An **object** that contains the following properties:\n    *   `name` — A **string** value that contains the collection's name.\n    *   `schema` — A **string** that contains a URL to the collection's schema. For example, the `https://schema.getpostman.com/collection/v1` URL.\n*   `item` — An **object** that contains the HTTP request and response information.\n    *   `request` — An **object** that contains the collection's request information. For a complete list of values, refer to the `definitions.request` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). If you pass an empty object for this value, the system defaults to an untitled GET request.\n\n**Note:**\n\n*   For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):\n    *   `info` object — Use the `definitions.info` entry.\n    *   `item` object — Use the `definitions.items` entry.\n*   For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": [
+						{
+							"name": "sukses order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"items\": [\n     {\n      \"book_id\": 30,\n      \"quantity\": 1\n    }\n    \n\n   \n  ]\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "{{workspaceId}}",
+											"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 09:50:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2006"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 16,\n    \"user_id\": 3,\n    \"User\": {\n        \"ID\": 3,\n        \"CreatedAt\": \"2025-09-13T02:17:34.948481Z\",\n        \"UpdatedAt\": \"2025-09-13T02:17:34.948481Z\",\n        \"DeletedAt\": null,\n        \"name\": \"Dian\",\n        \"email\": \"dian@example.com\",\n        \"role\": \"user\"\n    },\n    \"total_price\": 99.99,\n    \"status\": \"PENDING\",\n    \"created_at\": \"2025-09-15T17:50:34.005562Z\",\n    \"OrderItems\": [\n        {\n            \"id\": 21,\n            \"order_id\": 16,\n            \"book_id\": 30,\n            \"quantity\": 1,\n            \"price\": 99.99,\n            \"Book\": {\n                \"id\": 30,\n                \"title\": \"Judul Buku 1\",\n                \"author\": \"Penulis Buku 1\",\n                \"price\": 99.99,\n                \"stock\": 34,\n                \"year\": 2023,\n                \"category_id\": 8,\n                \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                \"Category\": {\n                    \"id\": 8,\n                    \"name\": \"kategori 1\"\n                },\n                \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n            }\n        }\n    ],\n    \"xendit_data\": \"&{0xc00040c5c0 payment-1757929830-3-Judul Buku 1 640ee132854d7d8920ebc83a <nil> <nil> <nil> PENDING Musfiroh https://xnd-merchant-logos.s3.amazonaws.com/business/production/640ee132854d7d8920ebc83a-1678696999067.png <nil> 99 2025-09-16 09:50:33.733 +0000 UTC https://checkout-staging.xendit.co/web/68c7e16958b3de63a2ca55d7 [{BCA POOL 0xc00040c6c0 <nil> MUSFIROH 0xc00041ed00 []} {MANDIRI POOL 0xc00040c6e0 <nil> MUSFIROH 0xc00041ed30 []} {BRI POOL 0xc00040c710 <nil> MUSFIROH 0xc00041ed58 []} {PERMATA POOL 0xc00040c730 <nil> MUSFIROH 0xc00041ed88 []} {BNI POOL 0xc00040c750 <nil> MUSFIROH 0xc00041edb0 []}] [{INDOMARET <nil> <nil> <nil>} {ALFAMART <nil> <nil> <nil>}] [{OVO} {DANA} {SHOPEEPAY} {LINKAJA} {ASTRAPAY} {GOPAY} {JENIUSPAY} {NEXCASH}] [{QRIS}] [{DD_BRI} {DD_MANDIRI}] [{KREDIVO <nil>} {AKULAKU <nil>} {ATOME <nil>}] 0xc00041f125 false 2025-09-15 09:50:33.848 +0000 UTC 2025-09-15 09:50:33.848 +0000 UTC <nil> <nil> <nil> IDR [] <nil> <nil> <nil> <nil> [] <nil> map[]}\",\n    \"invoice_url\": \"https://checkout-staging.xendit.co/web/68c7e16958b3de63a2ca55d7\"\n}"
+						}
+					]
+				},
+				{
+					"name": "pay",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/orders/15/pay",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"15",
+								"pay"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "{{accessKey}}",
+									"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": [
+						{
+							"name": "order tidak ditemukan",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/orders/1/pay",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders",
+										"1",
+										"pay"
+									],
+									"query": [
+										{
+											"key": "access_key",
+											"value": "{{accessKey}}",
+											"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 09:58:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"order not found\"\n}"
+						},
+						{
+							"name": "double pembayaran",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/orders/15/pay",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"orders",
+										"15",
+										"pay"
+									],
+									"query": [
+										{
+											"key": "access_key",
+											"value": "{{accessKey}}",
+											"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:01:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"order cannot be paid, current status is PAID\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/orders/13/pay",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"orders",
+										"13",
+										"pay"
+									],
+									"query": [
+										{
+											"key": "access_key",
+											"value": "{{accessKey}}",
+											"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:03:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "740"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Payment successful\",\n    \"order\": {\n        \"id\": 13,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 3,\n            \"CreatedAt\": \"2025-09-13T02:17:34.948481Z\",\n            \"UpdatedAt\": \"2025-09-13T02:17:34.948481Z\",\n            \"DeletedAt\": null,\n            \"name\": \"Dian\",\n            \"email\": \"dian@example.com\",\n            \"role\": \"user\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T17:33:03.229403Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 18,\n                \"order_id\": 13,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 8,\n                        \"name\": \"kategori 1\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response is an array with at least one order object\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"    responseData.forEach(order => {",
+									"        pm.expect(order).to.be.an('object');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the structure of each order object\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"",
+									"    responseData.forEach(order => {",
+									"        pm.expect(order).to.be.an('object');",
+									"        pm.expect(order).to.have.all.keys('id', 'user_id', 'User', 'total_price', 'status', 'created_at', 'OrderItems', 'xendit_data', 'invoice_url');",
+									"",
+									"        pm.expect(order.User).to.be.an('object');",
+									"        pm.expect(order.User).to.have.all.keys('ID', 'CreatedAt', 'UpdatedAt', 'DeletedAt', 'name', 'email', 'role');",
+									"",
+									"        pm.expect(order.OrderItems).to.be.an('array').that.is.not.empty;",
+									"",
+									"        order.OrderItems.forEach(item => {",
+									"            pm.expect(item).to.be.an('object');",
+									"            pm.expect(item).to.have.all.keys('id', 'order_id', 'book_id', 'quantity', 'price', 'Book');",
+									"",
+									"            pm.expect(item.Book).to.be.an('object');",
+									"            pm.expect(item.Book).to.have.all.keys('id', 'title', 'author', 'price', 'stock', 'year', 'category_id', 'image_base64', 'Category', 'created_at', 'updated_at');",
+									"        });",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"User object contains required fields: ID, name, and email\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"    ",
+									"    responseData.forEach(order => {",
+									"        pm.expect(order.User).to.be.an('object');",
+									"        pm.expect(order.User).to.have.all.keys('ID', 'name', 'email');",
+									"        pm.expect(order.User.ID).to.be.a('number');",
+									"        pm.expect(order.User.name).to.be.a('string').and.to.have.lengthOf.at.least(1);",
+									"        pm.expect(order.User.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/); // Valid email format",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Total price is a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"    ",
+									"    responseData.forEach(order => {",
+									"        pm.expect(order.total_price).to.be.a('number').and.to.be.at.least(0, \"Total price should be a non-negative number\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "buku",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections."
+					},
+					"response": [
+						{
+							"name": "Sukses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "buku",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:03:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "12076"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 6,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T02:01:32.647272Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 10,\n                \"order_id\": 6,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    },\n    {\n        \"id\": 7,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 299.97,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T02:01:58.106442Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 11,\n                \"order_id\": 7,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            },\n            {\n                \"id\": 12,\n                \"order_id\": 7,\n                \"book_id\": 29,\n                \"quantity\": 2,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 29,\n                    \"title\": \"Judul Buku\",\n                    \"author\": \"Penulis Buku\",\n                    \"price\": 99.99,\n                    \"stock\": 5,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T02:01:58.10418Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    },\n    {\n        \"id\": 8,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T16:51:18.060537Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 13,\n                \"order_id\": 8,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    },\n    {\n        \"id\": 9,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T17:03:17.407564Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 14,\n                \"order_id\": 9,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    },\n    {\n        \"id\": 10,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T17:25:52.456126Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 15,\n                \"order_id\": 10,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    },\n    {\n        \"id\": 11,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T17:27:43.111906Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 16,\n                \"order_id\": 11,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    },\n    {\n        \"id\": 12,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T17:29:29.548331Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 17,\n                \"order_id\": 12,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    },\n    {\n        \"id\": 16,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T17:50:34.005562Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 21,\n                \"order_id\": 16,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"&{0xc00040c5c0 payment-1757929830-3-Judul Buku 1 640ee132854d7d8920ebc83a <nil> <nil> <nil> PENDING Musfiroh https://xnd-merchant-logos.s3.amazonaws.com/business/production/640ee132854d7d8920ebc83a-1678696999067.png <nil> 99 2025-09-16 09:50:33.733 +0000 UTC https://checkout-staging.xendit.co/web/68c7e16958b3de63a2ca55d7 [{BCA POOL 0xc00040c6c0 <nil> MUSFIROH 0xc00041ed00 []} {MANDIRI POOL 0xc00040c6e0 <nil> MUSFIROH 0xc00041ed30 []} {BRI POOL 0xc00040c710 <nil> MUSFIROH 0xc00041ed58 []} {PERMATA POOL 0xc00040c730 <nil> MUSFIROH 0xc00041ed88 []} {BNI POOL 0xc00040c750 <nil> MUSFIROH 0xc00041edb0 []}] [{INDOMARET <nil> <nil> <nil>} {ALFAMART <nil> <nil> <nil>}] [{OVO} {DANA} {SHOPEEPAY} {LINKAJA} {ASTRAPAY} {GOPAY} {JENIUSPAY} {NEXCASH}] [{QRIS}] [{DD_BRI} {DD_MANDIRI}] [{KREDIVO <nil>} {AKULAKU <nil>} {ATOME <nil>}] 0xc00041f125 false 2025-09-15 09:50:33.848 +0000 UTC 2025-09-15 09:50:33.848 +0000 UTC <nil> <nil> <nil> IDR [] <nil> <nil> <nil> <nil> [] <nil> map[]}\",\n        \"invoice_url\": \"https://checkout-staging.xendit.co/web/68c7e16958b3de63a2ca55d7\"\n    },\n    {\n        \"id\": 5,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PAID\",\n        \"created_at\": \"2025-09-15T02:00:03.472295Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 9,\n                \"order_id\": 5,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    },\n    {\n        \"id\": 15,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PAID\",\n        \"created_at\": \"2025-09-15T17:41:15.054086Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 20,\n                \"order_id\": 15,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"&{0xc000264800 payment-1757929271-3-Judul Buku 1 640ee132854d7d8920ebc83a <nil> <nil> <nil> PENDING Musfiroh https://xnd-merchant-logos.s3.amazonaws.com/business/production/640ee132854d7d8920ebc83a-1678696999067.png <nil> 99 2025-09-16 09:41:14.813 +0000 UTC https://checkout-staging.xendit.co/web/68c7df3a58b3de63a2ca515e [{BCA POOL 0xc0002655c0 <nil> MUSFIROH 0xc0000aeed0 []} {MANDIRI POOL 0xc0002655e0 <nil> MUSFIROH 0xc0000aef10 []} {BRI POOL 0xc000265610 <nil> MUSFIROH 0xc0000aef38 []} {PERMATA POOL 0xc0001c4010 <nil> MUSFIROH 0xc0000aef78 []} {BNI POOL 0xc0001c4030 <nil> MUSFIROH 0xc0000aefa0 []}] [{INDOMARET <nil> <nil> <nil>} {ALFAMART <nil> <nil> <nil>}] [{OVO} {DANA} {SHOPEEPAY} {LINKAJA} {ASTRAPAY} {GOPAY} {JENIUSPAY} {NEXCASH}] [{QRIS}] [{DD_BRI} {DD_MANDIRI}] [{KREDIVO <nil>} {AKULAKU <nil>} {ATOME <nil>}] 0xc0000af3a5 false 2025-09-15 09:41:14.886 +0000 UTC 2025-09-15 09:41:14.886 +0000 UTC <nil> <nil> <nil> IDR [] <nil> <nil> <nil> <nil> [] <nil> map[]}\",\n        \"invoice_url\": \"https://checkout-staging.xendit.co/web/68c7df3a58b3de63a2ca515e\"\n    },\n    {\n        \"id\": 14,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T17:37:13.598742Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 19,\n                \"order_id\": 14,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"&{0xc0005a45d0 payment-3-Judul Buku 1 640ee132854d7d8920ebc83a <nil> <nil> <nil> PENDING Musfiroh https://xnd-merchant-logos.s3.amazonaws.com/business/production/640ee132854d7d8920ebc83a-1678696999067.png <nil> 99 2025-09-16 09:37:13.24 +0000 UTC https://checkout-staging.xendit.co/web/68c7de4858b3de63a2ca4fef [{BCA POOL 0xc0005a46d0 <nil> MUSFIROH 0xc0000b35f0 []} {MANDIRI POOL 0xc0005a46f0 <nil> MUSFIROH 0xc0000b3620 []} {BRI POOL 0xc0005a4720 <nil> MUSFIROH 0xc0000b3648 []} {PERMATA POOL 0xc0005a4740 <nil> MUSFIROH 0xc0000b3678 []} {BNI POOL 0xc0005a4760 <nil> MUSFIROH 0xc0000b36a0 []}] [{INDOMARET <nil> <nil> <nil>} {ALFAMART <nil> <nil> <nil>}] [{OVO} {DANA} {SHOPEEPAY} {LINKAJA} {ASTRAPAY} {GOPAY} {JENIUSPAY} {NEXCASH}] [{QRIS}] [{DD_BRI} {DD_MANDIRI}] [{KREDIVO <nil>} {AKULAKU <nil>} {ATOME <nil>}] 0xc0000b3a15 false 2025-09-15 09:37:13.356 +0000 UTC 2025-09-15 09:37:13.356 +0000 UTC <nil> <nil> <nil> IDR [] <nil> <nil> <nil> <nil> [] <nil> map[]}\",\n        \"invoice_url\": \"https://checkout-staging.xendit.co/web/68c7de4858b3de63a2ca4fef\"\n    },\n    {\n        \"id\": 13,\n        \"user_id\": 3,\n        \"User\": {\n            \"ID\": 0,\n            \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n            \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n            \"DeletedAt\": null,\n            \"name\": \"\",\n            \"email\": \"\",\n            \"role\": \"\"\n        },\n        \"total_price\": 99.99,\n        \"status\": \"PENDING\",\n        \"created_at\": \"2025-09-15T17:33:03.229403Z\",\n        \"OrderItems\": [\n            {\n                \"id\": 18,\n                \"order_id\": 13,\n                \"book_id\": 30,\n                \"quantity\": 1,\n                \"price\": 99.99,\n                \"Book\": {\n                    \"id\": 30,\n                    \"title\": \"Judul Buku 1\",\n                    \"author\": \"Penulis Buku 1\",\n                    \"price\": 99.99,\n                    \"stock\": 34,\n                    \"year\": 2023,\n                    \"category_id\": 8,\n                    \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                    \"Category\": {\n                        \"id\": 0,\n                        \"name\": \"\"\n                    },\n                    \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                    \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n                }\n            }\n        ],\n        \"xendit_data\": \"\",\n        \"invoice_url\": \"\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('id', 'user_id', 'User', 'total_price', 'status', 'created_at', 'OrderItems', 'xendit_data', 'invoice_url');",
+									"    ",
+									"    responseData.OrderItems.forEach(item => {",
+									"        pm.expect(item).to.have.all.keys('id', 'order_id', 'book_id', 'quantity', 'price', 'Book');",
+									"        pm.expect(item.Book).to.have.all.keys('id', 'title', 'author', 'price', 'stock', 'year', 'category_id', 'image_base64', 'Category');",
+									"        pm.expect(item.Book.Category).to.have.all.keys('id', 'name');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"User object contains valid fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.User).to.exist.and.to.be.an('object');",
+									"    pm.expect(responseData.User).to.have.all.keys('ID', 'CreatedAt', 'UpdatedAt', 'name', 'email', 'role');",
+									"",
+									"    pm.expect(responseData.User.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+									"    pm.expect(responseData.User.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/, \"Email format is invalid\");",
+									"    pm.expect(responseData.User.role).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Role should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Each OrderItem contains valid fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.OrderItems).to.be.an('array').that.is.not.empty;",
+									"",
+									"    responseData.OrderItems.forEach(item => {",
+									"        pm.expect(item).to.be.an('object');",
+									"        pm.expect(item).to.have.all.keys('id', 'order_id', 'book_id', 'quantity', 'price', 'Book');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Total price is a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.total_price).to.be.a('number').and.to.be.at.least(0, \"Total price should be a non-negative number\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders/14",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"14"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "buku",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections."
+					},
+					"response": [
+						{
+							"name": "Successfull Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/orders/14",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"orders",
+										"14"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "buku",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:06:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1946"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 14,\n    \"user_id\": 3,\n    \"User\": {\n        \"ID\": 0,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": null,\n        \"name\": \"\",\n        \"email\": \"\",\n        \"role\": \"\"\n    },\n    \"total_price\": 99.99,\n    \"status\": \"PENDING\",\n    \"created_at\": \"2025-09-15T17:37:13.598742Z\",\n    \"OrderItems\": [\n        {\n            \"id\": 19,\n            \"order_id\": 14,\n            \"book_id\": 30,\n            \"quantity\": 1,\n            \"price\": 99.99,\n            \"Book\": {\n                \"id\": 30,\n                \"title\": \"Judul Buku 1\",\n                \"author\": \"Penulis Buku 1\",\n                \"price\": 99.99,\n                \"stock\": 34,\n                \"year\": 2023,\n                \"category_id\": 8,\n                \"image_base64\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA...\",\n                \"Category\": {\n                    \"id\": 0,\n                    \"name\": \"\"\n                },\n                \"created_at\": \"2025-09-14T23:22:01.445195Z\",\n                \"updated_at\": \"2025-09-15T17:50:33.998032Z\"\n            }\n        }\n    ],\n    \"xendit_data\": \"&{0xc0005a45d0 payment-3-Judul Buku 1 640ee132854d7d8920ebc83a <nil> <nil> <nil> PENDING Musfiroh https://xnd-merchant-logos.s3.amazonaws.com/business/production/640ee132854d7d8920ebc83a-1678696999067.png <nil> 99 2025-09-16 09:37:13.24 +0000 UTC https://checkout-staging.xendit.co/web/68c7de4858b3de63a2ca4fef [{BCA POOL 0xc0005a46d0 <nil> MUSFIROH 0xc0000b35f0 []} {MANDIRI POOL 0xc0005a46f0 <nil> MUSFIROH 0xc0000b3620 []} {BRI POOL 0xc0005a4720 <nil> MUSFIROH 0xc0000b3648 []} {PERMATA POOL 0xc0005a4740 <nil> MUSFIROH 0xc0000b3678 []} {BNI POOL 0xc0005a4760 <nil> MUSFIROH 0xc0000b36a0 []}] [{INDOMARET <nil> <nil> <nil>} {ALFAMART <nil> <nil> <nil>}] [{OVO} {DANA} {SHOPEEPAY} {LINKAJA} {ASTRAPAY} {GOPAY} {JENIUSPAY} {NEXCASH}] [{QRIS}] [{DD_BRI} {DD_MANDIRI}] [{KREDIVO <nil>} {AKULAKU <nil>} {ATOME <nil>}] 0xc0000b3a15 false 2025-09-15 09:37:13.356 +0000 UTC 2025-09-15 09:37:13.356 +0000 UTC <nil> <nil> <nil> IDR [] <nil> <nil> <nil> <nil> [] <nil> map[]}\",\n    \"invoice_url\": \"https://checkout-staging.xendit.co/web/68c7de4858b3de63a2ca4fef\"\n}"
+						}
+					]
+				}
+			],
+			"description": "The `/orders` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "sales",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response contains the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('total_books_sold', 'total_revenue');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Total books sold is a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.total_books_sold).to.be.a('number').and.to.be.at.least(0);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Total revenue is a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.total_revenue).to.be.a('number').and.to.be.at.least(0, \"Total revenue should be non-negative\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/reports/sales",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"sales"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error akses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/reports/sales",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"reports",
+										"sales"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:16:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Forbidden: Admin access required\"\n}"
+						},
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/reports/sales",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"reports",
+										"sales"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:57:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total_books_sold\": 2,\n    \"total_revenue\": 199.98\n}"
+						}
+					]
+				},
+				{
+					"name": "bestseller",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response is an array with at least one element\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Each item in the array has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"    responseData.forEach(item => {",
+									"        pm.expect(item).to.have.all.keys('id', 'title', 'total_sold');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Title is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"    responseData.forEach(item => {",
+									"        pm.expect(item.title).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Total sold is a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(item => {",
+									"        pm.expect(item.total_sold).to.be.a('number').and.to.be.at.least(0, \"Total sold should be a non-negative integer\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/reports/bestseller",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"bestseller"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error auth",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/report/bestseller",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"report",
+										"bestseller"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:16:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Missing authorization header\"\n}"
+						},
+						{
+							"name": "successfull bestseller",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/reports/bestseller",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"reports",
+										"bestseller"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:57:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 30,\n        \"title\": \"Judul Buku 1\",\n        \"total_sold\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "prices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.all.keys('max_price', 'min_price', 'avg_price');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Prices are non-negative numbers\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.max_price).to.be.a('number').and.to.be.at.least(0, \"Max price should be non-negative\");",
+									"    pm.expect(responseData.min_price).to.be.a('number').and.to.be.at.least(0, \"Min price should be non-negative\");",
+									"    pm.expect(responseData.avg_price).to.be.a('number').and.to.be.at.least(0, \"Avg price should be non-negative\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Average price is calculated correctly based on max_price and min_price\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.avg_price).to.equal((responseData.max_price + responseData.min_price) / 2, \"Average price should be equal to the average of max_price and min_price\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/reports/prices",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"prices"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error auth",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/report/bestseller",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"report",
+										"bestseller"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:16:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Missing authorization header\"\n}"
+						},
+						{
+							"name": "error akses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/reports/prices",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"reports",
+										"prices"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:17:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Forbidden: Admin access required\"\n}"
+						},
+						{
+							"name": "successful prices",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/reports/prices",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"reports",
+										"prices"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Sep 2025 10:57:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"max_price\": 99.99,\n    \"min_price\": 99.99,\n    \"avg_price\": 99.99\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}
