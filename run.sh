@@ -3,9 +3,9 @@
 # Pindah ke direktori /app
 cd /app
 
-# Jalankan migrasi terlebih dahulu
+# Jalankan migrasi menggunakan program yang kita kompilasi
 echo "Running database migrations..."
-migrate -database "pgx://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$PGDATABASE?sslmode=disable" -path migrations up
+./migrate_runner
 
 # Jalankan aplikasi utama
 echo "Starting the main application..."
