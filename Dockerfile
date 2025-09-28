@@ -1,25 +1,29 @@
-# Step 1: Build Go binary
+# Stage 1: Build
 FROM golang:1.22 AS builder
 
-# WORKDIR /app
+# Set working directory
+WORKDIR /app
 
-# Copy go mod & sum
+# Copy go.mod dan go.sum dulu biar dependency bisa cache
 COPY go.mod go.sum ./
 RUN go mod download
 
-# Copy source code
+# Copy semua source code
 COPY . .
 
-# Build binary statically untuk linux/amd64
-RUN GOOS=linux GOARCH=amd64 go build -o out .
+# Build binary dari main.go
+RUN go build -o main .
 
-# Step 2: Run stage
-FROM debian:bullseye-slim
+# Stage 2: Run
+FROM debian:bookworm-slim
 
 WORKDIR /app
-COPY --from=builder /app/out .
 
-RUN chmod +x ./out
+# Copy binary hasil build
+COPY --from=builder /app/main .
 
-EXPOSE 3000
-CMD ["./out"]
+# Expose port default (ubah kalau aplikasimu pakai port lain)
+EXPOSE 8080
+
+# Jalankan binary
+CMD ["./main"]
