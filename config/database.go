@@ -1,35 +1,69 @@
 package config
 
 import (
-	"fmt"
-	"log"
-	"os"
+    "fmt"
+    "log"
+    "os"
 
-	"github.com/joho/godotenv"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
+    "github.com/joho/godotenv"
+    "gorm.io/driver/postgres"
+    "gorm.io/gorm"
 )
 
+// ConnectDB membuat koneksi database yang fleksibel untuk berbagai lingkungan.
 func ConnectDB() *gorm.DB {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+    // Muat .env secara lokal, abaikan error jika tidak ada (untuk deployment)
+    if err := godotenv.Load(); err != nil {
+        log.Println("Error loading .env file, using system environment variables.")
+    }
 
-	host := os.Getenv("DB_HOST")
-	port := os.Getenv("DB_PORT")
-	user := os.Getenv("DB_USER")
-	password := os.Getenv("DB_PASSWORD")
-	dbname := os.Getenv("DB_NAME")
+    var dsn string
 
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
-		host, user, password, dbname, port)
+    // Prioritas 1: Coba ambil DSN lengkap dari Railway atau layanan lain
+    dsn = os.Getenv("DATABASE_URL")
 
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if err != nil {
-		log.Fatal("Failed to connect to database:", err)
-	}
+    // Prioritas 2: Jika DSN tidak ada, coba buat dari variabel Railway standar
+    if dsn == "" {
+        host := os.Getenv("PGHOST")
+        user := os.Getenv("PGUSER")
+        pass := os.Getenv("PGPASSWORD")
+        name := os.Getenv("PGDATABASE")
+        port := os.Getenv("PGPORT")
 
-	fmt.Println("✅ Connected to DB")
-	return db
+        if host != "" && user != "" && pass != "" && name != "" && port != "" {
+            dsn = fmt.Sprintf(
+                "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+                host, user, pass, name, port,
+            )
+        }
+    }
+
+    // Prioritas 3: Jika masih kosong, coba gunakan variabel lokal (fallback)
+    if dsn == "" {
+        host := os.Getenv("DB_HOST")
+        user := os.Getenv("DB_USER")
+        pass := os.Getenv("DB_PASS")
+        name := os.Getenv("DB_NAME")
+        port := os.Getenv("DB_PORT")
+
+        if host != "" && user != "" && pass != "" && name != "" && port != "" {
+            dsn = fmt.Sprintf(
+                "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+                host, user, pass, name, port,
+            )
+        }
+    }
+
+    // Jika semua cara gagal, hentikan program
+    if dsn == "" {
+        log.Fatal("Could not find any database connection environment variables.")
+    }
+
+    db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+    if err != nil {
+        log.Fatal("Failed to connect to database:", err)
+    }
+
+    log.Println("✅ Connected to DB successfully!")
+    return db
 }
