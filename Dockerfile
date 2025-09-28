@@ -28,10 +28,9 @@ RUN CGO_ENABLED=0 go build -o main -v
 FROM alpine:3.18
 
 # Atur direktori kerja di dalam image final
-WORKDIR /app
 
 # Salin binary (file executable) dari tahap builder ke tahap final
-COPY --from=builder /app/main /app/main
+COPY --from=builder main main
 
 # Tambahkan izin eksekusi ke file binary
 RUN chmod +x ./main
