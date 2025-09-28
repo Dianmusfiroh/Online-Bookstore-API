@@ -1,36 +1,39 @@
-# -- Stage 1: Build the application --
+# -- Tahap 1: Kompilasi aplikasi (builder) --
 FROM golang:1.22.1-alpine AS builder
 
-# Set working directory
+# Atur direktori kerja di dalam kontainer
 WORKDIR /app
 
-# Copy go.mod and go.sum to cache dependencies
+# Salin go.mod dan go.sum untuk mengelola cache dependensi
 COPY go.mod .
 COPY go.sum .
 
-# Download dependencies
+# Unduh semua dependensi
 RUN go mod download
 
-# Copy all source code
+# Salin semua kode sumber dari lokal
 COPY . .
 
-# Build the Go binary for the final stage
-# Set the target OS and Architecture to prevent 'exec format error'
+# Secara eksplisit tentukan OS dan Arsitektur target
+# Ini mencegah masalah "Exec format error"
 ENV GOOS=linux
 ENV GOARCH=amd64
+
+# Kompilasi aplikasi Anda
 RUN CGO_ENABLED=0 go build -o main -v
 
-# -- Stage 2: Create a minimal production image --
-FROM alpine:latest
+# -- Tahap 2: Buat image produksi yang bersih (final) --
+# Gunakan image Alpine yang stabil dan aman
+FROM alpine:3.18
 
-# Set working directory
+# Atur direktori kerja
 WORKDIR /app
 
-# Copy the binary from the builder stage
+# Salin binary (file executable) dari tahap builder ke tahap final
 COPY --from=builder /app/main .
 
-# Add execute permissions to the binary
+# Tambahkan izin eksekusi ke file binary
 RUN chmod +x ./main
 
-# Set the command to run the application
+# Tentukan perintah untuk menjalankan aplikasi
 CMD ["./main"]
