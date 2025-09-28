@@ -1,7 +1,7 @@
 # Step 1: Build Go binary
 FROM golang:1.22 AS builder
 
-WORKDIR /app
+# WORKDIR /app
 
 # Copy go mod & sum
 COPY go.mod go.sum ./
