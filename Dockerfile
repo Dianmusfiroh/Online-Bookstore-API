@@ -13,12 +13,10 @@ RUN go mod download
 COPY . .
 
 # Secara eksplisit tentukan OS dan Arsitektur target
-# Ini mencegah masalah "Exec format error"
 ENV GOOS=linux
 ENV GOARCH=amd64
 
 # Kompilasi aplikasi Anda menjadi file executable
-# Asumsi: main.go berada di root direktori proyek Anda
 RUN CGO_ENABLED=0 go build -o main .
 
 # -- Tahap 2: Buat image produksi yang bersih (final) --
@@ -29,8 +27,11 @@ WORKDIR /app
 # Salin binary (file executable) dari tahap builder ke tahap final
 COPY --from=builder /app/main .
 
-# Tambahkan izin eksekusi ke file binary
-RUN chmod +x ./main
+# Salin skrip startup
+COPY ./run.sh .
 
-# Tentukan perintah untuk menjalankan aplikasi
-CMD ["./main"]
+# Tambahkan izin eksekusi ke file binary dan skrip
+RUN chmod +x ./main ./run.sh
+
+# Jalankan skrip startup
+CMD ["./run.sh"]
