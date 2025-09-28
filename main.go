@@ -1,42 +1,37 @@
-package main
+package config
 
 import (
-	"book-online-api/app/routes"
-	"book-online-api/config"
+	"fmt"
 	"log"
-
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-
-	"book-online-api/app/seeder"
 	"os"
 
+	"github.com/joho/godotenv"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
-func main() {
-	app := fiber.New()
-	db := config.ConnectDB()
-	if db == nil {
-		log.Fatal("Failed to connect to the database")
+func ConnectDB() *gorm.DB {
+	// coba load .env, tapi abaikan error kalau file tidak ada
+	_ = godotenv.Load()
+
+	dsn := os.Getenv("DATABASE_URL") // Railway biasanya kasih ini
+	if dsn == "" {
+		// fallback manual kalau env var belum diset
+		host := os.Getenv("DB_HOST")
+		user := os.Getenv("DB_USER")
+		pass := os.Getenv("DB_PASS")
+		name := os.Getenv("DB_NAME")
+		port := os.Getenv("DB_PORT")
+		dsn = fmt.Sprintf(
+			"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+			host, user, pass, name, port,
+		)
 	}
 
-	if os.Getenv("RUN_SEEDER") == "true" {
-		seeder.Seed(db)
-		log.Println("Seeder executed, exiting.")
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Println("Failed to connect database:", err)
+		return nil
 	}
-	app.Use(func(c *fiber.Ctx) error {
-		c.Locals("db", db)
-		return c.Next()
-	})
-	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "*",
-		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS,PATCH",
-		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
-		ExposeHeaders:    "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers",
-		AllowCredentials: false,
-	}))
-
-	routes.SetupRoutes(app, db)
-	// app.Listen(":3000")
-	log.Fatal("Failed to start the server: ", app.Listen(":3000"))
+	return db
 }
