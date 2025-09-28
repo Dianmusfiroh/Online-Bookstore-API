@@ -1,5 +1,5 @@
 # -- Tahap 1: Kompilasi aplikasi (builder) --
-FROM golang:1.22.1-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 
