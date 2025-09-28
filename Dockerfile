@@ -1,26 +1,37 @@
-# Stage 1: Build
-FROM --platform=linux/amd64 golang:1.22 AS builder
+# Gunakan base image golang
+FROM golang:1.21-alpine AS builder
 
-WORKDIR /app
+# Set environment variables
+ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 
-COPY go.mod go.sum ./
-RUN go mod download
+# Set working directory di dalam container
+WORKDIR /go/src/book-online-api
 
+# Copy semua source code ke dalam container
 COPY . .
 
-# Paksa build untuk linux amd64, binary statis
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main ./main.go
+# Download dependencies
+RUN go mod download
 
-# Stage 2: Run
-FROM --platform=linux/amd64 debian:bookworm-slim
+# Build binary
+RUN go build -o main .
 
-WORKDIR /app
+# ------------------------------
+# Stage 2: Buat image final lebih ringan
+# ------------------------------
+FROM alpine:latest
 
-COPY --from=builder /app/main .
+WORKDIR /root/
 
-# Pastikan binary bisa dieksekusi
-RUN chmod +x /app/main
+# Copy binary dari stage builder
+COPY --from=builder /go/src/book-online-api/main .
 
-EXPOSE 3000
+# Copy folder lain yang diperlukan (opsional, kalau butuh file selain binary)
+# COPY --from=builder /go/src/book-online-api/config ./config
+# COPY --from=builder /go/src/book-online-api/migrations ./migrations
 
-CMD ["/app/main"]
+# Port aplikasi (ubah sesuai kebutuhan)
+EXPOSE 8080
+
+# Jalankan binary
+CMD ["./main"]
