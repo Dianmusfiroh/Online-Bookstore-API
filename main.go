@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"os"
+	_ "github.com/lib/pq" // Driver untuk "postgresql"
+    _ "github.com/jackc/pgx/v5/stdlib" // Driver untuk "pgx"
 
 	"book-online-api/app/routes"
 	"book-online-api/config"
@@ -11,6 +13,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
+
 )
 
 func main() {
