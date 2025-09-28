@@ -1,22 +1,15 @@
-FROM golang:1.22.1-alpine AS builder
-
-# Paksa compile untuk Linux AMD64
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
-
+FROM golang:1.23 as builder
 WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
 
 COPY . .
 
-RUN go mod download
-RUN go build -o main .
+RUN GOOS=linux GOARCH=amd64 go build -o main .
 
-FROM alpine:latest
-
+FROM debian:bookworm-slim
 WORKDIR /root
-
 COPY --from=builder /app/main .
 
-RUN chmod +x main
-
-EXPOSE 3000
 CMD ["./main"]
