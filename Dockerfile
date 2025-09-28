@@ -10,7 +10,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Instal alat migrasi
-RUN GO111MODULE=on go install github.com/golang-migrate/migrate/v4/cmd/migrate@v4.18.0
+RUN GO111MODULE=on go install -tags "postgres" github.com/golang-migrate/migrate/v4/cmd/migrate@v4.18.0
 
 # Salin semua kode sumber dari lokal
 COPY . .
