@@ -1,10 +1,11 @@
 # -- Tahap 1: Kompilasi aplikasi (builder) --
+# Gunakan image Golang yang spesifik untuk versi go.mod Anda
 FROM golang:1.22.1-alpine AS builder
 
 # Atur direktori kerja di dalam kontainer
 WORKDIR /app
 
-# Salin go.mod dan go.sum untuk mengelola cache dependensi
+# Salin file go.mod dan go.sum untuk mengelola cache dependensi
 COPY go.mod .
 COPY go.sum .
 
@@ -19,18 +20,18 @@ COPY . .
 ENV GOOS=linux
 ENV GOARCH=amd64
 
-# Kompilasi aplikasi Anda
+# Kompilasi aplikasi Anda menjadi file executable
 RUN CGO_ENABLED=0 go build -o main -v
 
 # -- Tahap 2: Buat image produksi yang bersih (final) --
 # Gunakan image Alpine yang stabil dan aman
 FROM alpine:3.18
 
-# Atur direktori kerja
+# Atur direktori kerja di dalam image final
 WORKDIR /app
 
 # Salin binary (file executable) dari tahap builder ke tahap final
-COPY --from=builder /app/main .
+COPY --from=builder /app/main /app/main
 
 # Tambahkan izin eksekusi ke file binary
 RUN chmod +x ./main
