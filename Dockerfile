@@ -9,4 +9,7 @@ RUN CGO_ENABLED=0 go build -o main -v
 # -- Stage 2: Final --
 FROM alpine:latest
 COPY --from=builder /app/main .
+# Add execute permissions to the binary
+RUN chmod +x ./main
+
 CMD ["./main"]
