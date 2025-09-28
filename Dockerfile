@@ -12,12 +12,15 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main ./main.go
 
 # Run stage
-FROM scratch
+FROM debian:bookworm-slim
 
 WORKDIR /app
 
 COPY --from=builder /app/main .
 
+# Pastikan binary bisa dieksekusi
+RUN chmod +x /app/main
+
 EXPOSE 3000
 
-ENTRYPOINT ["/app/main"]
+CMD ["/app/main"]
