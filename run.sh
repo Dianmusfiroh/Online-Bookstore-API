@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Pindah ke direktori /app
+cd /app
+
 # Jalankan migrasi terlebih dahulu
 echo "Running database migrations..."
 migrate -database "pgx://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$PGDATABASE?sslmode=disable" -path migrations up

@@ -10,7 +10,6 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Instal alat migrasi
-# GO111MODULE=on memastikan go install bekerja dengan benar
 RUN GO111MODULE=on go install github.com/golang-migrate/migrate/v4/cmd/migrate@v4.18.0
 
 # Salin semua kode sumber dari lokal
@@ -32,6 +31,11 @@ COPY --from=builder /app/main .
 
 # Salin skrip startup
 COPY ./run.sh .
+
+# === Bagian yang Ditambahkan ===
+# Salin folder migrasi ke dalam kontainer
+COPY migrations migrations
+# ==================================
 
 # Tambahkan izin eksekusi ke file binary dan skrip
 RUN chmod +x ./main ./run.sh
