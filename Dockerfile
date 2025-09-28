@@ -11,7 +11,7 @@ RUN go mod download
 
 # Instal alat migrasi
 # GO111MODULE=on memastikan go install bekerja dengan benar
-RUN GO111MODULE=on go install github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+RUN GO111MODULE=on go install github.com/golang-migrate/migrate/v4/cmd/migrate@v4.18.0
 
 # Salin semua kode sumber dari lokal
 COPY . .
