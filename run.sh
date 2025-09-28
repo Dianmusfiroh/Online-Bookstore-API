@@ -6,7 +6,7 @@ cd /app
 # Jalankan migrasi terlebih dahulu
 echo "Running database migrations..."
 migrate -database "pgx://postgres:xidOShwWcHtxASEEHcptmJTfFsEDZHVX@$PGHOST:$PGPORT/$PGDATABASE?sslmode=disable" -path migrations up
-cd /migrations
+cd migrations
 ./main
 cd ..
 # Jalankan aplikasi utama
