@@ -31,7 +31,7 @@ FROM alpine:3.18
 WORKDIR /app
 
 # Salin binary aplikasi utama dan alat migrasi dari builder
-COPY --from=builder /go/bin/migrations /usr/local/bin/migrations
+COPY --from=builder /go/bin/migrate /usr/local/bin/migrate
 COPY --from=builder /app/main .
 
 # Salin skrip startup
