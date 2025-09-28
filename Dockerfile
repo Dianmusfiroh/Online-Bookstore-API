@@ -19,7 +19,7 @@ RUN CGO_ENABLED=0 go build -o main .
 
 # === Kompilasi program migrasi terpisah ===
 # Catatan: kita tidak perlu lagi menginstal alat migrate secara eksternal
-RUN CGO_ENABLED=0 go build -o migrate_runner ./migrattions
+RUN CGO_ENABLED=0 go build -o migrate_runner ./migrations
 
 # -- Tahap 2: Buat image produksi yang bersih (final) --
 FROM alpine:3.18
