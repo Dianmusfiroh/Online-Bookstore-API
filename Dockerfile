@@ -9,11 +9,8 @@ COPY go.mod go.sum ./
 # Unduh semua dependensi
 RUN go mod download
 
-# === BARIS YANG DIPERBAIKI ===
-# Instal alat migrasi dengan driver pgx
-# go install github.com/golang-migrate/migrate/v4/cmd/migrate@v4.18.0
+# Instal alat migrasi
 RUN GO111MODULE=on go install github.com/golang-migrate/migrate/v4/cmd/migrate@v4.18.0
-# ==============================
 
 # Salin semua kode sumber dari lokal
 COPY . .
