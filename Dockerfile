@@ -1,4 +1,4 @@
-# Build stage
+# Stage 1: Build
 FROM golang:1.22 AS builder
 
 WORKDIR /app
@@ -8,17 +8,17 @@ RUN go mod download
 
 COPY . .
 
-# Build untuk linux amd64
+# Paksa build untuk Linux AMD64, binary statis
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main ./main.go
 
-# Run stage
+# Stage 2: Run
 FROM debian:bookworm-slim
 
 WORKDIR /app
 
 COPY --from=builder /app/main .
 
-# Pastikan binary bisa dieksekusi
+# Pastikan executable
 RUN chmod +x /app/main
 
 EXPOSE 3000
